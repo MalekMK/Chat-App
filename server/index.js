@@ -26,8 +26,6 @@ io.on('connect', (socket) => {
     socket.broadcast.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has joined!` });
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room), rooms: Array.from(new Set(getActiveRooms()))  });
-    let test = Array.from(new Set(getActiveRooms()))
-    console.log(test)
 
     callback();
   });
